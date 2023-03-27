@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Podcast;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,7 @@ class PodcastsController extends Controller
 
     public function index()
     {
-        $podcasts = User::all();
+        $podcasts = Podcast::all();
         return view('home',['podcasts' => $podcasts]);
     }
 }

@@ -27,7 +27,7 @@
 
 <ul>
     @foreach($podcasts as $podcast)
-        <li>{{ $podcast->name }}</li>
+        <li>{{ $podcast->title }}</li>
     @endforeach
 </ul>
 
