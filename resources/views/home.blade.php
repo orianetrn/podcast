@@ -8,6 +8,7 @@
     <title>Accueil</title>
 </head>
 <body>
+
 @if (Route::has('login'))
     <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
         @auth
@@ -21,6 +22,14 @@
         @endauth
     </div>
 @endif
+
+<h1>Tous nos podcasts :</h1>
+
+<ul>
+    @foreach($podcasts as $podcast)
+        <li>{{ $podcast->name }}</li>
+    @endforeach
+</ul>
 
 </body>
 </html>
