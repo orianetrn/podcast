@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PodcastsController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,9 +16,15 @@ use App\Http\Controllers\PodcastsController;
 |
 */
 
+
+// PAGE ACCUEIL
 Route::get('/',[PodcastsController::class, 'index'])-> name('podcasts.index');
 
+// PAGE INFO PODCAST
+Route::get('/podcast/{podcast}',[PodcastsController::class, 'info'])-> name('podcast.info');
 
+
+//??
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

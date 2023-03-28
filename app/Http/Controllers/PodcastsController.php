@@ -14,4 +14,9 @@ class PodcastsController extends Controller
         $podcasts = Podcast::all();
         return view('home',['podcasts' => $podcasts]);
     }
+
+    public function info(Podcast $podcast)
+    {
+        return view('podcast-info',['podcast' => $podcast]);
+    }
 }
