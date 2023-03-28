@@ -11,7 +11,7 @@
 
 <h1>{{$podcast->title}}</h1>
 
-
+<p>Créé par : {{$podcast -> user -> name}}</p>
 <p>Description : {{$podcast -> file_name}}</p>
 
 
