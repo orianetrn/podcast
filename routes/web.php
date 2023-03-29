@@ -20,26 +20,30 @@ use App\Http\Controllers\PodcastsController;
 // PAGE ACCUEIL
 Route::get('/',[PodcastsController::class, 'home'])-> name('home');
 
-Route::resource('podcasts', PodcastsController::class);
-/*
+//Route::resource('podcasts', PodcastsController::class);
+
 // PAGE GÉRER LES/MES PODCASTS
 Route::get('/podcasts',[PodcastsController::class, 'index'])-> name('podcasts.index')->middleware('auth');
 
-// PAGE AJOUTER UN PODCAST
+// PAGE FORMULAIRE AJOUTER UN PODCAST
 Route::get('/podcasts/create',[PodcastsController::class, 'create'])-> name('podcasts.create')->middleware('auth');
+
+// AJOUTER UN PODCAST
+Route::post('/podcasts',[PodcastsController::class, 'store'])-> name('podcasts.store')->middleware('auth');
 
 // PAGE INFO PODCAST
 Route::get('/podcasts/{podcast}',[PodcastsController::class, 'show'])-> name('podcasts.show');
-
-// CREATE PODCAST
-Route::post('/podcasts',[PodcastsController::class, 'store'])-> name('podcasts.store')->middleware('auth');
 
 // PAGE ÉDITION PODCAST
 Route::get('/podcasts/{podcast}/edit',[PodcastsController::class, 'edit'])-> name('podcasts.edit')->middleware('auth');
 
 //UPDATE PODCAST
 Route::put('/podcasts/{podcast}',[PodcastsController::class, 'update'])-> name('podcasts.update')->middleware('auth');
-*/
+
+//UPDATE PODCAST
+Route::DELETE('/podcasts/{podcast}',[PodcastsController::class, 'destroy'])-> name('podcasts.destroy')->middleware('auth');
+
+
 
 
 
