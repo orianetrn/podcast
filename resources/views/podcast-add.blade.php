@@ -30,11 +30,11 @@
     @enderror
 
     <label>Pochette
-        <input type="file" name="cover" accept="image/png, image/jpeg">
+        <input type="file" name="cover">
     </label>
 
     <label>Audio
-        <input type="file" name="audio" accept="audio/mp4">
+        <input type="file" name="audio">
     </label>
 
     <button type="submit">Ajouter</button>
