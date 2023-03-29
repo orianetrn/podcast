@@ -17,7 +17,7 @@
     @foreach($podcasts as $podcast)
         <li>
             {{ $podcast->title }}
-            <a href="{{route('podcast.edit', $podcast)}}">Modifier</a>
+            <a href="{{route('podcasts.edit', $podcast)}}">Modifier</a>
         </li>
     @endforeach
 </ul>

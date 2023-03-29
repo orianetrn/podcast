@@ -11,7 +11,7 @@
 
 <h1>Modifier {{$podcast->title}} :</h1>
 
-<form action="{{route('podcast.update', $podcast)}}" method="POST">
+<form action="{{route('podcasts.update', $podcast)}}" method="POST">
     @csrf
     @method('PUT')
 
