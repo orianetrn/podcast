@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Podcast;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PodcastsController extends Controller
 {
@@ -20,8 +21,15 @@ class PodcastsController extends Controller
         return view('podcast-info',['podcast' => $podcast]);
     }
 
-    public function manage(Podcast $podcast)
+    public function manage()
     {
-        return view('podcast-manage',['podcast' => $podcast]);
+        if (Auth::user()->status == 'admin') {
+            $podcasts = Podcast::all();
+            return view('podcast-manage', ['podcasts' => $podcasts]);
+        } else {
+            $podcasts = Auth::user()->podcasts;
+            return view('podcast-manage', ['podcasts' => $podcasts]);
+        }
     }
+
 }

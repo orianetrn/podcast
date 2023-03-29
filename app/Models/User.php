@@ -43,7 +43,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function podcast(): HasMany
+    public function podcasts(): HasMany
     {
         return $this->hasMany(Podcast::class);
     }
