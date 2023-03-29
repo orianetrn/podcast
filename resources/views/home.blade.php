@@ -14,6 +14,7 @@
         @auth
             <a href="{{ url('/dashboard') }}">Dashboard</a>
             <a href="{{ route('podcasts.index') }}">Gérer les podcasts</a>
+            <a href="{{ route('logout') }}">Log out</a>
         @else
             <a href="{{ route('login') }}">Log in</a>
 
