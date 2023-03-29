@@ -18,6 +18,11 @@
         <li>
             {{ $podcast->title }}
             <a href="{{route('podcasts.edit', $podcast)}}">Modifier</a>
+            <form action="{{route('podcasts.destroy', $podcast)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit">Supprimer</button>
+            </form>
         </li>
     @endforeach
 </ul>

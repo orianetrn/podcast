@@ -82,4 +82,11 @@ class PodcastsController extends Controller
 
         return redirect()->route('podcasts.index');
     }
+
+    public function destroy(string $id)
+    {
+        Podcast::destroy($id);
+        return redirect()->route('podcasts.index');
+    }
+
 }
