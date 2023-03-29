@@ -13,7 +13,10 @@
 
 <ul>
     @foreach($podcasts as $podcast)
-        <li>{{ $podcast->title }}</li>
+        <li>
+            {{ $podcast->title }}
+            <a href="{{route('podcast.edit', $podcast)}}">Modifier</a>
+        </li>
     @endforeach
 </ul>
 </body>

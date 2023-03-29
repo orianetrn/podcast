@@ -21,10 +21,17 @@ use App\Http\Controllers\PodcastsController;
 Route::get('/',[PodcastsController::class, 'index'])-> name('podcasts.index');
 
 // PAGE GÉRER LES/MES PODCASTS
-Route::get('/podcast/manage',[PodcastsController::class, 'manage'])-> name('podcast.manage');
+Route::get('/podcast/manage',[PodcastsController::class, 'manage'])-> name('podcast.manage')->middleware('auth');;
+
+// PAGE ÉDITION PODCAST
+Route::get('/podcast/manage/{podcast}/edit',[PodcastsController::class, 'edit'])-> name('podcast.edit')->middleware('auth');;
+
+//UPDATE PODCAST
+Route::put('/podcast/manage/{podcast}',[PodcastsController::class, 'update'])-> name('podcast.update')->middleware('auth');;
 
 // PAGE INFO PODCAST
 Route::get('/podcast/{podcast}',[PodcastsController::class, 'info'])-> name('podcast.info');
+
 
 
 
