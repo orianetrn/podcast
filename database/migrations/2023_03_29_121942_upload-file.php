@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('podcasts', function (Blueprint $table) {
-            $table->string('cover_file');
-            $table->string('audio_file');
+            $table->string('cover_file')->nullable();
+            $table->string('audio_file')->nullable();
         });
     }
 
