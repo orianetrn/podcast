@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('podcasts', function (Blueprint $table) {
-            $table->string('url_cover');
-            $table->string('url_audio');
+            $table->string('cover_file');
+            $table->string('audio_file');
         });
     }
 
@@ -23,8 +23,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('podcasts', function (Blueprint $table) {
-            $table->dropColumn('url_cover');
-            $table->dropColumn('url_audio');
+            $table->dropColumn('cover_file');
+            $table->dropColumn('audio_file');
         });
     }
 };

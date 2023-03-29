@@ -6,22 +6,18 @@ use App\Models\Podcast;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PodcastsController extends Controller
 {
 
-    public function index()
+    public function home()
     {
         $podcasts = Podcast::all();
         return view('home',['podcasts' => $podcasts]);
     }
 
-    public function info(Podcast $podcast)
-    {
-        return view('podcast-info',['podcast' => $podcast]);
-    }
-
-    public function manage()
+    public function index()
     {
         if (Auth::user()->status == 'admin') {
             $podcasts = Podcast::all();
@@ -32,10 +28,13 @@ class PodcastsController extends Controller
         }
     }
 
-    public function edit ($id)
+    public function show(Podcast $podcast)
     {
-        $podcast = Podcast::find($id);
+        return view('podcast-info',['podcast' => $podcast]);
+    }
 
+    public function edit(Podcast $podcast)
+    {
         return view('podcast-edit', ['podcast' => $podcast]);
     }
 
@@ -51,28 +50,36 @@ class PodcastsController extends Controller
         $podcast->file_name = $request->input('file_name');
         $podcast->save();
 
-        return redirect()->route('podcast.manage');
+        return redirect()->route('podcasts.index');
     }
 
-    public function form_add (Podcast $podcast)
+    public function create(Podcast $podcast)
     {
         return view('podcast-add', ['podcast' => $podcast]);
     }
 
-    public function create(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'title'=>'required',
             'file_name'=>'required',
+            'cover_file'=>'required',
+            'audio_file'=>'required',
         ]);
+
+        dump($request->url_cover);
+
+        $url_cover = Storage::disk('public')->put('podcast-img', $request -> cover_file);
+        $url_audio = Storage::disk('public')->put('podcast-audio', $request -> audio_file);
 
         Podcast::create([
             'title' => $request->input('title'),
             'file_name' => $request->input('file_name'),
             'user_id' => Auth::user()->id,
+            'cover_file' => $url_cover,
+            'audio_file' => $url_audio,
         ]);
 
-
-        return redirect()->route('podcast.manage');
+        return redirect()->route('podcasts.index');
     }
 }

@@ -11,7 +11,7 @@
 
 <h1>Ajouter un podcast:</h1>
 
-<form action="{{route('podcast.create', $podcast)}}" method="POST">
+<form action="{{route('podcasts.store', $podcast)}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
@@ -30,11 +30,11 @@
     @enderror
 
     <label>Pochette
-        <input type="file" name="cover">
+        <input type="file" name="cover_file">
     </label>
 
     <label>Audio
-        <input type="file" name="audio">
+        <input type="file" name="audio_file">
     </label>
 
     <button type="submit">Ajouter</button>

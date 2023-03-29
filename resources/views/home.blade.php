@@ -13,7 +13,7 @@
     <div>
         @auth
             <a href="{{ url('/dashboard') }}">Dashboard</a>
-            <a href="{{ route('podcast.manage') }}">Gérer les podcasts</a>
+            <a href="{{ route('podcasts.index') }}">Gérer les podcasts</a>
         @else
             <a href="{{ route('login') }}">Log in</a>
 
@@ -28,7 +28,7 @@
 
 <ul>
     @foreach($podcasts as $podcast)
-        <li><a href="{{ route ('podcast.info',$podcast)}}">{{ $podcast->title }}</a></li>
+        <li><a href="{{ route ('podcasts.show',$podcast)}}">{{ $podcast->title }}</a></li>
     @endforeach
 </ul>
 

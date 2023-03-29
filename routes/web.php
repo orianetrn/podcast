@@ -18,25 +18,28 @@ use App\Http\Controllers\PodcastsController;
 
 
 // PAGE ACCUEIL
-Route::get('/',[PodcastsController::class, 'index'])-> name('podcasts.index');
+Route::get('/',[PodcastsController::class, 'home'])-> name('home');
+
+Route::resource('podcasts', PodcastsController::class);
 
 // PAGE GÉRER LES/MES PODCASTS
-Route::get('/podcast/manage',[PodcastsController::class, 'manage'])-> name('podcast.manage')->middleware('auth');
-
-// PAGE AJOUTER UN PODCAST
-Route::get('/form_add',[PodcastsController::class, 'form_add'])-> name('podcast.form.add')->middleware('auth');
-
-// CREATE PODCAST
-Route::put('/create',[PodcastsController::class, 'create'])-> name('podcast.create')->middleware('auth');
-
-// PAGE ÉDITION PODCAST
-Route::get('/podcast/manage/{podcast}/edit',[PodcastsController::class, 'edit'])-> name('podcast.edit')->middleware('auth');
-
-//UPDATE PODCAST
-Route::put('/podcast/manage/{podcast}',[PodcastsController::class, 'update'])-> name('podcast.update')->middleware('auth');
+Route::get('/podcasts',[PodcastsController::class, 'index'])-> name('podcasts.index')->middleware('auth');
 
 // PAGE INFO PODCAST
-Route::get('/podcast/{podcast}',[PodcastsController::class, 'info'])-> name('podcast.info');
+Route::get('/podcasts/{podcast}',[PodcastsController::class, 'show'])-> name('podcasts.show');
+
+// PAGE AJOUTER UN PODCAST
+Route::get('/podcasts/create',[PodcastsController::class, 'create'])-> name('podcasts.create')->middleware('auth');
+
+// CREATE PODCAST
+Route::post('/podcasts',[PodcastsController::class, 'store'])-> name('podcasts.store')->middleware('auth');
+
+// PAGE ÉDITION PODCAST
+Route::get('/podcasts/{podcast}/edit',[PodcastsController::class, 'edit'])-> name('podcast.edit')->middleware('auth');
+
+//UPDATE PODCAST
+Route::put('/podcasts/{podcast}',[PodcastsController::class, 'update'])-> name('podcast.update')->middleware('auth');
+
 
 
 
