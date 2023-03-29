@@ -19,4 +19,9 @@ class PodcastsController extends Controller
     {
         return view('podcast-info',['podcast' => $podcast]);
     }
+
+    public function manage(Podcast $podcast)
+    {
+        return view('podcast-manage',['podcast' => $podcast]);
+    }
 }

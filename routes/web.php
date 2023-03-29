@@ -20,8 +20,12 @@ use App\Http\Controllers\PodcastsController;
 // PAGE ACCUEIL
 Route::get('/',[PodcastsController::class, 'index'])-> name('podcasts.index');
 
+// PAGE GÉRER LES/MES PODCASTS
+Route::get('/podcast/manage',[PodcastsController::class, 'manage'])-> name('podcast.manage');
+
 // PAGE INFO PODCAST
 Route::get('/podcast/{podcast}',[PodcastsController::class, 'info'])-> name('podcast.info');
+
 
 
 //??
