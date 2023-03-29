@@ -51,6 +51,6 @@ class PodcastsController extends Controller
         $podcast->file_name = $request->input('file_name');
         $podcast->save();
 
-        return redirect()->route('podcast-manage');
+        return redirect()->route('podcast.manage');
     }
 }
