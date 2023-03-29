@@ -11,6 +11,8 @@
 
 <h1>Gestion des podcasts :</h1>
 
+<a href="{{route('podcast.form.add')}}">Ajouter un podcast</a>
+
 <ul>
     @foreach($podcasts as $podcast)
         <li>

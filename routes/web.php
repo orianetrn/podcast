@@ -21,13 +21,19 @@ use App\Http\Controllers\PodcastsController;
 Route::get('/',[PodcastsController::class, 'index'])-> name('podcasts.index');
 
 // PAGE GÉRER LES/MES PODCASTS
-Route::get('/podcast/manage',[PodcastsController::class, 'manage'])-> name('podcast.manage')->middleware('auth');;
+Route::get('/podcast/manage',[PodcastsController::class, 'manage'])-> name('podcast.manage')->middleware('auth');
+
+// PAGE AJOUTER UN PODCAST
+Route::get('/form_add',[PodcastsController::class, 'form_add'])-> name('podcast.form.add')->middleware('auth');
+
+// CREATE PODCAST
+Route::put('/create',[PodcastsController::class, 'create'])-> name('podcast.create')->middleware('auth');
 
 // PAGE ÉDITION PODCAST
-Route::get('/podcast/manage/{podcast}/edit',[PodcastsController::class, 'edit'])-> name('podcast.edit')->middleware('auth');;
+Route::get('/podcast/manage/{podcast}/edit',[PodcastsController::class, 'edit'])-> name('podcast.edit')->middleware('auth');
 
 //UPDATE PODCAST
-Route::put('/podcast/manage/{podcast}',[PodcastsController::class, 'update'])-> name('podcast.update')->middleware('auth');;
+Route::put('/podcast/manage/{podcast}',[PodcastsController::class, 'update'])-> name('podcast.update')->middleware('auth');
 
 // PAGE INFO PODCAST
 Route::get('/podcast/{podcast}',[PodcastsController::class, 'info'])-> name('podcast.info');

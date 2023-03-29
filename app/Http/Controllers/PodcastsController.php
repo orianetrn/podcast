@@ -53,4 +53,26 @@ class PodcastsController extends Controller
 
         return redirect()->route('podcast.manage');
     }
+
+    public function form_add (Podcast $podcast)
+    {
+        return view('podcast-add', ['podcast' => $podcast]);
+    }
+
+    public function create(Request $request)
+    {
+        $request->validate([
+            'title'=>'required',
+            'file_name'=>'required',
+        ]);
+
+        Podcast::create([
+            'title' => $request->input('title'),
+            'file_name' => $request->input('file_name'),
+            'user_id' => Auth::user()->id,
+        ]);
+
+
+        return redirect()->route('podcast.manage');
+    }
 }
