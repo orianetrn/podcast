@@ -67,15 +67,15 @@ class PodcastsController extends Controller
             'audio_file'=>'required',
         ]);
 
-        $url_cover = Storage::disk('public')->put('podcast-img', $request -> cover_file);
-        $url_audio = Storage::disk('public')->put('podcast-audio', $request -> audio_file);
+        $cover_file = Storage::disk('public')->put('podcast-img', $request -> cover_file);
+        $audio_file = Storage::disk('public')->put('podcast-audio', $request -> audio_file);
 
         Podcast::create([
             'title' => $request->input('title'),
             'file_name' => $request->input('file_name'),
             'user_id' => Auth::user()->id,
-            'cover_file' => $url_cover,
-            'audio_file' => $url_audio,
+            'cover_file' => $cover_file,
+            'audio_file' => $audio_file,
         ]);
 
         return redirect()->route('podcasts.index');

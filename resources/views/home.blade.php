@@ -27,11 +27,12 @@
 
 <h1>Tous nos podcasts :</h1>
 
-<ul>
-    @foreach($podcasts as $podcast)
-        <li><a href="{{ route ('podcasts.show',$podcast)}}">{{ $podcast->title }}</a></li>
-    @endforeach
-</ul>
+
+@foreach($podcasts as $podcast)
+    <a href="{{ route ('podcasts.show',$podcast)}}">{{ $podcast->title }}</a>
+    <img src="{{Storage::url($podcast->cover_file)}}">
+@endforeach
+
 
 </body>
 </html>
