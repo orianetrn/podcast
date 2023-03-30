@@ -16,7 +16,7 @@
 
 <img src="{{Storage::url($podcast->cover_file)}}">
 <audio controls>
-    <source src="{{Storage::url($podcast->audio_file)}}" type="audio/ogg">
+    <source src="{{Storage::url($podcast->audio_file)}}" type="{{Storage::mimeType($podcast->audio_file)}}">
 </audio>
 
 </body>

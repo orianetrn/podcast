@@ -40,7 +40,7 @@ Route::get('/podcasts/{podcast}/edit',[PodcastsController::class, 'edit'])-> nam
 //UPDATE PODCAST
 Route::put('/podcasts/{podcast}',[PodcastsController::class, 'update'])-> name('podcasts.update')->middleware('auth');
 
-//UPDATE PODCAST
+//DELETE PODCAST
 Route::DELETE('/podcasts/{podcast}',[PodcastsController::class, 'destroy'])-> name('podcasts.destroy')->middleware('auth');
 
 
