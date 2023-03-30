@@ -54,9 +54,9 @@
 
             <div class="form">
                 <label>Description
-                    <input class="input-form" type="text" name="file_name" value="{{$podcast->file_name}}">
+                    <input class="input-form" type="text" name="description" value="{{$podcast->description}}">
                 </label>
-                @error('file_name')
+                @error('description')
                 <div class="alert alert-danger"><p class="erreur">{{$message}}</p></div>
                 @enderror
             </div>

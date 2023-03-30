@@ -12,7 +12,7 @@ class Podcast extends Model
 
     protected $fillable = [
         'title',
-        'file_name',
+        'description',
         'user_id',
         'cover_file',
         'audio_file',

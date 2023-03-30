@@ -21,16 +21,16 @@ class PodcastsController extends Controller
     {
         if (Auth::user()->status == 'admin') {
             $podcasts = Podcast::all();
-            return view('podcast-manage', ['podcasts' => $podcasts]);
+            return view('index', ['podcasts' => $podcasts]);
         } else {
             $podcasts = Auth::user()->podcasts;
-            return view('podcast-manage', ['podcasts' => $podcasts]);
+            return view('index', ['podcasts' => $podcasts]);
         }
     }
 
     public function show(Podcast $podcast)
     {
-        return view('podcast-info',['podcast' => $podcast]);
+        return view('podcast-show',['podcast' => $podcast]);
     }
 
     public function edit(Podcast $podcast)
@@ -42,7 +42,7 @@ class PodcastsController extends Controller
     {
         $request->validate([
             'title'=>'required',
-            'file_name'=>'required',
+            'description'=>'required',
             /*
             'cover_file'=>'required',
             'audio_file'=>'required',
@@ -56,7 +56,7 @@ class PodcastsController extends Controller
 
         $podcast = Podcast::find($id);
         $podcast->title =  $request->input('title');
-        $podcast->file_name = $request->input('file_name');
+        $podcast->description = $request->input('description');
         /*
         $podcast->cover_file = $cover_file;
         $podcast->audio_file = $audio_file;
@@ -68,14 +68,14 @@ class PodcastsController extends Controller
 
     public function create(Podcast $podcast)
     {
-        return view('podcast-add', ['podcast' => $podcast]);
+        return view('podcast-create', ['podcast' => $podcast]);
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'title'=>'required',
-            'file_name'=>'required',
+            'description'=>'required',
             'cover_file'=>'required',
             'audio_file'=>'required',
         ]);
@@ -85,7 +85,7 @@ class PodcastsController extends Controller
 
         Podcast::create([
             'title' => $request->input('title'),
-            'file_name' => $request->input('file_name'),
+            'description' => $request->input('description'),
             'user_id' => Auth::user()->id,
             'cover_file' => $cover_file,
             'audio_file' => $audio_file,

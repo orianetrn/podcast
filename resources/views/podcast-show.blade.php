@@ -42,7 +42,7 @@
     <div class="bloc2">
         <h2> {{ $podcast->title }} </h2> <br>
         <p class="name">{{$podcast -> user -> name}}</p>
-        <p class="description">{{$podcast -> file_name}}</p>
+        <p class="description">{{$podcast -> description}}</p>
         <audio controls>
             <source src="{{Storage::url($podcast->audio_file)}}" type="{{Storage::mimeType($podcast->audio_file)}}">
         </audio>
