@@ -6,18 +6,48 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{$podcast->title}}</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </head>
 <body>
+<header class="header">
+    <div class="header__logo">
+        <a href="{{ route('home') }}">
+            <img class="logo" src="logo.png" alt="logo">
+        </a>
+    </div>
+    <nav class="header__nav">
+        <ul class="header__nav__menu">
+            @auth
+                <li class="header__nav__menu__link">
+                    <a href="{{ route('podcasts.index') }}">Gérer les podcasts</a>
+                </li>
+                <li class="header__nav__menu__link">
+                    <a href="{{ route('logout') }}">Log out</a>
+                </li>
+            @else
+                <li class="header__nav__menu__link">
+                    <a href="{{ route('login') }}">Log in</a>
+                </li>
+            @endauth
+        </ul>
+    </nav>
+</header>
 
-<h1>{{$podcast->title}}</h1>
+<div class="container-show blocs">
+    <div class="bloc-show">
+            <img class="cover-show" src="{{Storage::url($podcast->cover_file)}}" alt="cover de podcast">
+    </div>
 
-<p>Créé par : {{$podcast -> user -> name}}</p>
-<p>Description : {{$podcast -> file_name}}</p>
-
-<img src="{{Storage::url($podcast->cover_file)}}">
-<audio controls>
-    <source src="{{Storage::url($podcast->audio_file)}}" type="{{Storage::mimeType($podcast->audio_file)}}">
-</audio>
+    <div class="bloc-show">
+        <h2> {{ $podcast->title }} </h2> <br>
+        <p class="name">{{$podcast -> user -> name}}</p>
+        <p class="description">{{$podcast -> file_name}}</p>
+        <audio controls>
+            <source src="{{Storage::url($podcast->audio_file)}}" type="{{Storage::mimeType($podcast->audio_file)}}">
+        </audio>
+    </div>
+</div>
 
 </body>
 </html>

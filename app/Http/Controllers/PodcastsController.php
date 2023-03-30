@@ -43,11 +43,24 @@ class PodcastsController extends Controller
         $request->validate([
             'title'=>'required',
             'file_name'=>'required',
+            /*
+            'cover_file'=>'required',
+            'audio_file'=>'required',
+            */
         ]);
+
+        /*
+        $cover_file = Storage::disk('public')->put('podcast-img', $request -> cover_file);
+        $audio_file = Storage::disk('public')->put('podcast-audio', $request -> audio_file);
+        */
 
         $podcast = Podcast::find($id);
         $podcast->title =  $request->input('title');
         $podcast->file_name = $request->input('file_name');
+        /*
+        $podcast->cover_file = $cover_file;
+        $podcast->audio_file = $audio_file;
+        */
         $podcast->save();
 
         return redirect()->route('podcasts.index');

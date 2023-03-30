@@ -1,3 +1,173 @@
+@import url("https://use.typekit.net/yez4prl.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* GLOBAL */
+
+body {
+    color: black;
+    font-family: "articulat-cf",sans-serif;
+}
+
+select {
+    color: deeppink;
+}
+
+h1 {
+    font-family: "new-kansas", sans-serif;
+    font-size: 50px;
+    text-align: center;
+    color: deeppink;
+    margin: 50px;
+}
+
+h2 {
+    font-size: 25px;
+    font-family: articulat-cf, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+p {
+    margin: 10px;
+}
+
+audio {
+    margin: 50px;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.blocs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.button {
+    border: solid black 0.5px;
+    border-radius: 20px;
+    padding: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 20px;
+}
+
+/* HEADER */
+.header {
+    height: 70px;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.header__nav__menu {
+    padding: 20px;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.header__nav__menu__link {
+    margin-right: 20px;
+}
+
+.header__nav__menu__link a {
+    text-decoration: none;
+    position: relative;
+    font-family: "new-kansas", sans-serif;
+    color: deeppink;
+}
+
+.logo {
+    width: 15%;
+}
+
+/*AFFICHER PODCAST EN LISTE PAGE HOME + GÉRER */
+
+.bloc-liste {
+    width: calc((100% / 4) - 50px);
+    margin: 25px;
+}
+
+.cover-liste{
+    width: 250px;
+    border-radius: 20px;
+}
+
+.button-liste {
+    border: solid black 0.5px;
+    border-radius: 20px;
+    padding: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 20px;
+    margin-left: -5px;
+}
+
+/*AFFICHER INFORMATION DU PODCAST*/
+
+.container-show {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.bloc-show {
+    width: calc((100% / 2) - 50px);
+    margin: 25px;
+}
+
+.cover-show{
+    border-radius: 20px;
+}
+
+.name {
+    font-family: articulat-cf, sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+/*PAGE FORMULAIRE*/
+
+.container-form {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.bloc-form {
+    width: 100%;
+    justify-content: center;
+    border: solid deeppink 5px;
+    border-radius: 20px;
+    padding: 50px;
+}
+
+label {
+    font-size: 20px;
+    font-family: "articulat-cf", sans-serif;
+}
+
+.form {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.input-form {
+    border: solid deeppink;
+    border-width: 2px;
+    border-radius: 10px;
+    width: 100%;
+}
