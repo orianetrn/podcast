@@ -38,24 +38,25 @@
 
 <h1>Tous les podcasts</h1>
 
+<div class="container flex mb-50">
+    @foreach($podcasts as $podcast)
+        <div class="flex bloc2 bg-liste">
+            <div class="bloc2">
+                <a href="{{ route ('podcasts.show',$podcast)}}">
+                    <img class="cover-liste" src="{{Storage::url($podcast->cover_file)}}" alt="cover de podcast">
+                </a>
+            </div>
 
-@foreach($podcasts as $podcast)
-
-    <div class="container blocs">
-        <div class="bloc-liste">
-            <a href="{{ route ('podcasts.show',$podcast)}}">
-                <img class="cover-liste" src="{{Storage::url($podcast->cover_file)}}" alt="cover de podcast">
-            </a>
+            <div class="bloc2">
+                <h2> <a href="{{ route ('podcasts.show',$podcast)}}">{{ $podcast->title }}</a> </h2> <br>
+                <a class="button-home" href="{{ route ('podcasts.show',$podcast)}}">
+                    Ecouter le podcast
+                    <img class="img-play" src="play.png">
+                </a>
+            </div>
         </div>
-
-        <div class="bloc-liste">
-           <h2> <a href="{{ route ('podcasts.show',$podcast)}}">{{ $podcast->title }}</a> </h2> <br>
-            <a class="button-liste" href="{{ route ('podcasts.show',$podcast)}}">Ecouter le podcast</a>
-        </div>
-    </div>
-
-@endforeach
-
+    @endforeach
+</div>
 
 </body>
 </html>

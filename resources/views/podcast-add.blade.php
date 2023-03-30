@@ -37,7 +37,7 @@
 <h1>Ajouter un podcast</h1>
 
 <div class="container-form">
-    <div class="blocs bloc-form">
+    <div class="flex bloc-form">
 
         <form action="{{route('podcasts.store', $podcast)}}" method="POST" enctype="multipart/form-data">
             @csrf

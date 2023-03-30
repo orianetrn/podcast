@@ -34,12 +34,12 @@
     </nav>
 </header>
 
-<div class="container-show blocs">
-    <div class="bloc-show">
+<div class="container flex mt-50 mb-50">
+    <div class="bloc2">
             <img class="cover-show" src="{{Storage::url($podcast->cover_file)}}" alt="cover de podcast">
     </div>
 
-    <div class="bloc-show">
+    <div class="bloc2">
         <h2> {{ $podcast->title }} </h2> <br>
         <p class="name">{{$podcast -> user -> name}}</p>
         <p class="description">{{$podcast -> file_name}}</p>

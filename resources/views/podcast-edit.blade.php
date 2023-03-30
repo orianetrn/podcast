@@ -38,7 +38,7 @@
 
 <div class="container-form">
 
-    <div class="blocs bloc-form">
+    <div class="flex bloc-form">
         <form action="{{route('podcasts.update', $podcast)}}" method="POST">
             @csrf
             @method('PUT')

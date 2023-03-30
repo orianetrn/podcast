@@ -39,19 +39,14 @@
 
 <a class="button" href="{{route('podcasts.create')}}">Ajouter un podcast</a>
 
-
-@foreach($podcasts as $podcast)
-
-
-
-
-
-        <div class="container blocs">
-            <div class="bloc-liste">
+<div class="container flex mt-25 mb-50">
+    @foreach($podcasts as $podcast)
+        <div class="flex bloc2 bg-liste">
+            <div class="bloc2">
                 <img class="cover-liste" src="{{Storage::url($podcast->cover_file)}}" alt="cover de podcast">
             </div>
 
-            <div class="bloc-liste">
+            <div class="bloc2">
                 <h2> <a href="{{ route ('podcasts.show',$podcast)}}">{{ $podcast->title }}</a> </h2> <br>
                 <a class="button-liste" href="{{route('podcasts.edit', $podcast)}}">Modifier</a>
                 <form action="{{route('podcasts.destroy', $podcast)}}" method="POST">
@@ -61,8 +56,7 @@
                 </form>
             </div>
         </div>
-
-@endforeach
-
+    @endforeach
+</div>
 </body>
 </html>

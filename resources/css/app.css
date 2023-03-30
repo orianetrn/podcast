@@ -11,10 +11,6 @@ body {
     font-family: "articulat-cf",sans-serif;
 }
 
-select {
-    color: deeppink;
-}
-
 h1 {
     font-family: "new-kansas", sans-serif;
     font-size: 50px;
@@ -43,19 +39,39 @@ audio {
     margin: 0 auto;
 }
 
-.blocs {
+.flex {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
 }
 
+.bloc2 {
+    width: calc((100% / 2) - 50px);
+    margin: 25px;
+}
+
 .button {
-    border: solid black 0.5px;
+    color: #04a777;
+    border: solid #04a777 2px;
     border-radius: 20px;
     padding: 3px;
     padding-left: 15px;
     padding-right: 15px;
     margin: 20px;
+}
+
+/*POO*/
+
+.mt-25 {
+    margin-top: 25px;
+}
+
+.mt-50 {
+    margin-top: 50px;
+}
+
+.mb-50 {
+    margin-bottom: 50px;
 }
 
 /* HEADER */
@@ -67,7 +83,7 @@ audio {
     align-items: center;
     justify-content: space-between;
     padding: 0px 20px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: #e8e8e4 0px 7px 80px 0px;
 }
 
 .header__nav__menu {
@@ -95,14 +111,28 @@ audio {
 
 /*AFFICHER PODCAST EN LISTE PAGE HOME + GÉRER */
 
-.bloc-liste {
-    width: calc((100% / 4) - 50px);
-    margin: 25px;
-}
-
 .cover-liste{
     width: 250px;
     border-radius: 20px;
+    box-shadow: black 20px 20px 100px -40px
+}
+
+.button-home {
+    border: solid black 0.5px;
+    border-radius: 20px;
+    padding: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 20px;
+    margin-left: -5px;
+    display: flex;
+    align-items: center;
+}
+
+.img-play {
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
 }
 
 .button-liste {
@@ -115,27 +145,23 @@ audio {
     margin-left: -5px;
 }
 
+.bg-liste {
+    background-color: #e8e8e4;
+    padding: 20px;
+    border-radius: 20px;
+}
+
 /*AFFICHER INFORMATION DU PODCAST*/
-
-.container-show {
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 50px;
-}
-
-.bloc-show {
-    width: calc((100% / 2) - 50px);
-    margin: 25px;
-}
 
 .cover-show{
     border-radius: 20px;
+    box-shadow: gray 20px 20px 100px -40px
 }
 
 .name {
     font-family: articulat-cf, sans-serif;
-    font-weight: 200;
-    font-style: normal;
+    font-weight: 100;
+    font-style: italic;
 }
 
 /*PAGE FORMULAIRE*/
@@ -149,6 +175,7 @@ audio {
 .bloc-form {
     width: 100%;
     justify-content: center;
+    /*background-color: #e8e8e4;*/
     border: solid deeppink 5px;
     border-radius: 20px;
     padding: 50px;
@@ -166,8 +193,9 @@ label {
 }
 
 .input-form {
-    border: solid deeppink;
+    border: solid #04a777;
     border-width: 2px;
     border-radius: 10px;
+    /*background-color: #e8e8e4;*/
     width: 100%;
 }
