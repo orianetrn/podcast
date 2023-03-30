@@ -13,7 +13,7 @@
 
 <form action="{{route('podcasts.store', $podcast)}}" method="POST" enctype="multipart/form-data">
     @csrf
-    @method('PUT')
+    @method('POST')
 
     <label>Titre
         <input type="text" name="title">

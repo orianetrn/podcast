@@ -67,8 +67,6 @@ class PodcastsController extends Controller
             'audio_file'=>'required',
         ]);
 
-        dump($request->url_cover);
-
         $url_cover = Storage::disk('public')->put('podcast-img', $request -> cover_file);
         $url_audio = Storage::disk('public')->put('podcast-audio', $request -> audio_file);
 

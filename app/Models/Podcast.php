@@ -14,6 +14,8 @@ class Podcast extends Model
         'title',
         'file_name',
         'user_id',
+        'cover_file',
+        'audio_file',
     ];
 
     public function user(): BelongsTo
