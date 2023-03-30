@@ -16,7 +16,7 @@
 <ul>
     @foreach($podcasts as $podcast)
         <li>
-            {{ $podcast->title }}
+            <a href="{{ route ('podcasts.show',$podcast)}}">{{ $podcast->title }}</a>
             <a href="{{route('podcasts.edit', $podcast)}}">Modifier</a>
             <form action="{{route('podcasts.destroy', $podcast)}}" method="POST">
                 @csrf
