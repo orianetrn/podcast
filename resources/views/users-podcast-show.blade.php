@@ -5,12 +5,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Accueil</title>
+    <title>Gestion des podcasts</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 
 </head>
 <body>
-
 <header class="header">
     <div class="header__logo">
         <a href="{{ route('home') }}">
@@ -38,8 +38,7 @@
     </nav>
 </header>
 
-
-<h1>Tous les podcasts</h1>
+<h1>Les podcasts de {{$user -> name}} :</h1>
 
 <div class="container flex mb-50">
     @foreach($podcasts as $podcast)
@@ -54,12 +53,13 @@
                 <h2> <a href="{{ route ('podcasts.show',$podcast)}}">{{ $podcast->title }}</a> </h2> <br>
                 <a class="button-home" href="{{ route ('podcasts.show',$podcast)}}">
                     Ecouter le podcast
-                    <img class="img-play" src="play.png">
+                    <img class="img-play" src="{{asset('play.png')}}">
                 </a>
             </div>
         </div>
     @endforeach
 </div>
+
 
 </body>
 </html>

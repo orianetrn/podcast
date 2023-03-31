@@ -18,6 +18,9 @@
     </div>
     <nav class="header__nav">
         <ul class="header__nav__menu">
+            <li class="header__nav__menu__link">
+                <a href="{{ route('artistes.index') }}">Les artistes</a>
+            </li>
             @auth
                 <li class="header__nav__menu__link">
                     <a href="{{ route('podcasts.index') }}">Gérer les podcasts</a>

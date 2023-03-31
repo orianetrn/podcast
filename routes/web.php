@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PodcastsController;
+use App\Http\Controllers\UsersController;
 
 
 /*
@@ -43,8 +44,11 @@ Route::put('/podcasts/{podcast}',[PodcastsController::class, 'update'])-> name('
 //DELETE PODCAST
 Route::DELETE('/podcasts/{podcast}',[PodcastsController::class, 'destroy'])-> name('podcasts.destroy')->middleware('auth');
 
+//PAGE TOUS LES ARTISTES
+Route::get('/artistes',[UsersController::class, 'index'])-> name('artistes.index');
 
-
+//PAGE TOUS LES PODCASTS D'UN ARTISTE
+Route::get('/artistes/{user}',[UsersController::class, 'show'])-> name('artistes.show');
 
 
 
