@@ -79,7 +79,7 @@ return [
     'mac_address'          => 'Le champ :attribute doit être une adresse MAC valide.',
     'max'                  => [
         'array'   => 'Le tableau :attribute ne peut pas contenir plus que :max éléments.',
-        'file'    => 'La taille du fichier de :attribute ne peut pas dépasser :max kilo-octets.',
+        'file'    => 'La taille du fichier de ne peut pas dépasser :max kilo-octets.',
         'numeric' => 'La valeur de :attribute ne peut pas être supérieure à :max.',
         'string'  => 'Le texte de :attribute ne peut pas contenir plus de :max caractères.',
     ],

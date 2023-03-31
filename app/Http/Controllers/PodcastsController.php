@@ -43,8 +43,8 @@ class PodcastsController extends Controller
         $request->validate([
             'title'=>'required',
             'description'=>'required',
-            'cover_file'=>'required|mimes:jpg,png|max:800',
-            'audio_file'=>'required|mimes:mp3,ogg,m4a|max:10000',
+            'cover_file'=>'mimes:jpg,png|max:800',
+            'audio_file'=>'mimes:mp3,ogg,m4a|max:10000',
         ]);
 
         //$cover_file = Storage::disk('public')->put('podcast-img', $request -> cover_file);

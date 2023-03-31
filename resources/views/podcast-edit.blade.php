@@ -65,12 +65,18 @@
                 <label>Pochette
                     <input type="file" name="cover_file">
                 </label>
+                @error('cover_file')
+                <div class="alert alert-danger"><p class="erreur">{{$message}}</p></div>
+                @enderror
             </div>
 
             <div class="form">
                 <label>Audio
                     <input type="file" name="audio_file">
                 </label>
+                @error('audio_file')
+                <div class="alert alert-danger"><p class="erreur">{{$message}}</p></div>
+                @enderror
             </div>
 
             <button class="button" type="submit">Modifier les informations</button>
