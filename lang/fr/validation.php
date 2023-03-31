@@ -84,7 +84,7 @@ return [
         'string'  => 'Le texte de :attribute ne peut pas contenir plus de :max caractères.',
     ],
     'max_digits'           => 'Le champ :attribute ne doit pas avoir plus de :max chiffres.',
-    'mimes'                => 'Le champ :attribute doit être un fichier de type : :values.',
+    'mimes'                => 'Le champ doit être un fichier de type : :values.',
     'mimetypes'            => 'Le champ :attribute doit être un fichier de type : :values.',
     'min'                  => [
         'array'   => 'Le tableau :attribute doit contenir au moins :min éléments.',
@@ -115,7 +115,7 @@ return [
     'prohibited_unless'    => 'Le champ :attribute est interdit à moins que :other est l\'une des valeurs :values.',
     'prohibits'            => 'Le champ :attribute interdit :other d\'être présent.',
     'regex'                => 'Le format du champ :attribute est invalide.',
-    'required'             => 'Le champ :attribute est obligatoire.',
+    'required'             => 'Le champ est obligatoire.',
     'required_array_keys'  => 'Le champ :attribute doit contenir des entrées pour : :values.',
     'required_if'          => 'Le champ :attribute est obligatoire quand la valeur de :other est :value.',
     'required_if_accepted' => 'Le champ :attribute est obligatoire quand le champ :other a été accepté.',
