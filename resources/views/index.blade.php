@@ -24,11 +24,11 @@
                     <a href="{{ route('podcasts.index') }}">Gérer les podcasts</a>
                 </li>
                 <li class="header__nav__menu__link">
-                    <a href="{{ route('logout') }}">Log out</a>
+                    <a href="{{ route('logout') }}">Déconnection</a>
                 </li>
             @else
                 <li class="header__nav__menu__link">
-                    <a href="{{ route('login') }}">Log in</a>
+                    <a href="{{ route('login') }}">Connection</a>
                 </li>
             @endauth
         </ul>
