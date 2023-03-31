@@ -57,12 +57,12 @@ class PodcastsController extends Controller
 
         $audio_file = null;
         if ($request->hasFile('audio_file')) {
-            $audio_file = Storage::disk('public')->put('audio_file', $request->audio_file);
+            $audio_file = Storage::disk('public')->put('podcast-audio', $request->audio_file);
         }
 
         $cover_file = null;
         if ($request->hasFile('cover_file')) {
-            $cover_file = Storage::disk('public')->put('cover_file', $request->cover_file);
+            $cover_file = Storage::disk('public')->put('podcast-img', $request->cover_file);
         }
 
         if ($audio_file !== null) {
