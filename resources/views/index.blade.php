@@ -39,6 +39,12 @@
 
 <a class="button" href="{{route('podcasts.create')}}">Ajouter un podcast</a>
 
+@if(session("message"))
+    <div class="alert alert-success">
+        {{session('message')}}
+    </div>
+@endif
+
 <div class="container flex mt-25 mb-50">
     @foreach($podcasts as $podcast)
         <div class="flex bloc2 bg-liste">

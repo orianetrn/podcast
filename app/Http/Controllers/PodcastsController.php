@@ -79,7 +79,7 @@ class PodcastsController extends Controller
         */
         $podcast->save();
 
-        return redirect()->route('podcasts.index');
+        return redirect()->route('podcasts.index')->with('message','Le podcast a été modifié !');
     }
 
     public function create(Podcast $podcast)
@@ -105,7 +105,7 @@ class PodcastsController extends Controller
             'audio_file' => $audio_file,
         ]);
 
-        return redirect()->route('podcasts.index');
+        return redirect()->route('podcasts.index')->with('message','Un podcast a été ajouté !');
     }
 
     public function destroy(string $id)
