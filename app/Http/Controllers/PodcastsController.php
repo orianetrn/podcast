@@ -43,23 +43,39 @@ class PodcastsController extends Controller
         $request->validate([
             'title'=>'required',
             'description'=>'required',
-            /*
-            'cover_file'=>'required',
-            'audio_file'=>'required',
-            */
         ]);
 
-        /*
-        $cover_file = Storage::disk('public')->put('podcast-img', $request -> cover_file);
-        $audio_file = Storage::disk('public')->put('podcast-audio', $request -> audio_file);
-        */
+        //$cover_file = Storage::disk('public')->put('podcast-img', $request -> cover_file);
+        //$audio_file = Storage::disk('public')->put('podcast-audio', $request -> audio_file);
 
         $podcast = Podcast::find($id);
         $podcast->title =  $request->input('title');
         $podcast->description = $request->input('description');
+
+        //$podcast->cover_file = $cover_file;
+        //$podcast->audio_file = $audio_file;
+
+        $audio_file = null;
+        if ($request->hasFile('audio_file')) {
+            $audio_file = Storage::disk('public')->put('audio_file', $request->audio_file);
+        }
+
+        $cover_file = null;
+        if ($request->hasFile('cover_file')) {
+            $cover_file = Storage::disk('public')->put('cover_file', $request->cover_file);
+        }
+
+        if ($audio_file !== null) {
+            $podcast->audio_file = $audio_file;
+        }
+
+        if ($cover_file !== null) {
+            $podcast->cover_file = $cover_file;
+        }
         /*
-        $podcast->cover_file = $cover_file;
-        $podcast->audio_file = $audio_file;
+        if ($cover_file === null) {
+            $cover_file = Podcast::where('id', $id)->first()->cover_file;
+        }
         */
         $podcast->save();
 
@@ -76,8 +92,6 @@ class PodcastsController extends Controller
         $request->validate([
             'title'=>'required',
             'description'=>'required',
-            'cover_file'=>'required',
-            'audio_file'=>'required',
         ]);
 
         $cover_file = Storage::disk('public')->put('podcast-img', $request -> cover_file);
