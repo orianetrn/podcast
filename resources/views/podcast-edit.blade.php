@@ -13,7 +13,7 @@
 <header class="header">
     <div class="header__logo">
         <a href="{{ route('home') }}">
-            <img class="logo" src="logo.png" alt="logo">
+            <img class="logo" src="{{asset('logo.png')}}" alt="logo">
         </a>
     </div>
     <nav class="header__nav">
@@ -39,7 +39,7 @@
 <div class="container-form">
 
     <div class="flex bloc-form">
-        <form action="{{route('podcasts.update', $podcast)}}" method="POST">
+        <form action="{{route('podcasts.update', $podcast)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 

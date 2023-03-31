@@ -13,7 +13,7 @@
 <header class="header">
     <div class="header__logo">
         <a href="{{ route('home') }}">
-            <img class="logo" src="logo.png" alt="logo">
+            <img class="logo" src="{{asset('logo.png')}}" alt="logo">
         </a>
     </div>
     <nav class="header__nav">
@@ -63,13 +63,13 @@
 
             <div class="form">
                 <label>Pochette
-                    <input type="file" name="cover_file">
+                    <input type="file" name="cover_file" required>
                 </label>
             </div>
 
             <div class="form">
                 <label>Audio
-                    <input type="file" name="audio_file">
+                    <input type="file" name="audio_file" required>
                 </label>
             </div>
 
